@@ -22,5 +22,7 @@ graph TD
     F --> M[Output & Interactions];
     J -.-> D;
     L -.-> E;
-```
 
+```
+### Chat Interface 
+<img width="1331" height="764" alt="smart_home_chat_interface" src="https://github.com/user-attachments/assets/7cb696d9-d74e-447d-b7f1-c1a6730410de" />
