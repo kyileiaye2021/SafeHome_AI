@@ -39,12 +39,28 @@ The Security Agent manages home security events. If it receives alerts such as a
 The Command Control Agent processes direct user commands. When the homeowner makes a request (e.g., turning on lights, adjusting thermostat), this agent interprets the command and executes the corresponding actions across the smart home system.
 
 ### Essential Tools & Utilities
-- Google Agent Development Kit (Google ADK) 
-- Google Gemini API
-- - preprocess_vision_events
-  - preprocess_sound_events
-- Open Mateo Weather API
-- 
+
+The Smart Home Multi-Agent System is built on top of several key tools and utilities that enable perception, reasoning, and safe interaction with the environment.
+
+#### Google Agent Development Kit (Google ADK)
+
+Google ADK provides the underlying multi-agent framework for the system. It manages agent orchestration, tool calling, and event routing between the Input Router Agent, Hazard Agent, Security Agent, and Command Control Agent. This allows the system to remain modular, debuggable, and easy to extend with new agents or tools.
+
+#### Google Gemini API
+
+The Google Gemini API powers the language and reasoning capabilities of the agents. It helps interpret user commands, summarize sensor events, and decide which actions or tools to invoke. By leveraging Gemini, the system can handle natural language, ambiguous inputs, and multi-step reasoning instead of relying solely on hard-coded rules.
+
+#### preprocess_vision_events
+
+This utility processes raw visual input (e.g., camera frames, motion detections) into structured events that the agents can understand. It may detect objects, classify motion, or extract key features, then encode them as concise JSON events. This preprocessing step is essential for reducing noise and giving the Security Agent high-quality, actionable information.
+
+#### preprocess_sound_events
+
+Similarly, this tool converts raw audio signals (e.g., glass breaking, alarms, unusual noises) into meaningful sound events. It filters out background noise and focuses on patterns that may indicate potential hazards or security issues, allowing the Hazard and Security Agents to reason over clean, structured data instead of raw sound.
+
+#### Open-Meteo Weather API
+
+The Open-Meteo Weather API is integrated as an external tool for the Hazard Agent. It provides real-time and forecasted weather data, enabling the system to adapt indoor temperature, prepare for extreme conditions, and generate non-emergency alerts (such as suggesting pre-cooling before a heatwave). This makes hazard decisions more context-aware and predictive, rather than purely reactive.
 
 ### Web UI Interface 
 <img width="1305" height="729" alt="smart_home_web_ui_interface" src="https://github.com/user-attachments/assets/efef2cc5-90b9-4ac4-9e01-083c1f234190" />
