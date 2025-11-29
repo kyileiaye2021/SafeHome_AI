@@ -24,7 +24,24 @@ graph TD
     L -.-> E;
 
 ```
+To solve the problem, Smart Home AI multiagent system was built. Smart Home AI system consists of four AI agents that contributes to the system: Input Router Agent, Hazard Agent, Security Agent, and Command Control Agent. 
+
+#### Input Router Agent
+Input Router Agent is a core of the multiagent system which directs the cases to relevant agents. When the emergency events are detected, it directs the events to corresponding hazard/security agents that alert the homeowener. When user command message was prompted, the input router agent sent request to the command control agent and conduct the task. 
+
+#### Hazard Agent
+
+#### Security Agent
+
+#### Command Control Agent
+
+### Essential Tools & Utilities
+
 ### Web UI Interface 
 <img width="1305" height="729" alt="smart_home_web_ui_interface" src="https://github.com/user-attachments/assets/efef2cc5-90b9-4ac4-9e01-083c1f234190" />
 
+### Conclusion
 
+### Value Statement
+
+#### Huggingface: [Link](https://huggingface.co/spaces/kyileiaye2019/safe-home-ai/tree/main)
