@@ -24,18 +24,22 @@ graph TD
     L -.-> E;
 
 ```
-To solve the problem, Smart Home AI multiagent system was built. Smart Home AI system consists of four AI agents that contributes to the system: Input Router Agent, Hazard Agent, Security Agent, and Command Control Agent. 
+To address real-world home safety and automation challenges, a Smart Home AI multi-agent system was built. It was composed of four specialized agents: the Input Router Agent, Hazard Agent, Security Agent, and Command Control Agent. Each agent handles a specific category of events or user requests, enabling fast, context-aware decision-making.
 
 #### Input Router Agent
-Input Router Agent is a core of the multiagent system which directs the cases to relevant agents. When the emergency events are detected, it directs the events to corresponding hazard/security agents that alert the homeowener. When user command message was prompted, the input router agent sent request to the command control agent and conduct the task. 
+The Input Router Agent is the core coordinator of the system. It classifies every incoming event, either an emergency or a user command, and routes it to the correct agent. Emergency events are forwarded to the Hazard or Security Agent for immediate action, while user commands are delegated to the Command Control Agent to execute the requested tasks.
 
 #### Hazard Agent
+The Hazard Agent handles all hazard-related events. Upon receiving a hazard alert from the Input Router Agent, it evaluates severity and invokes the appropriate tools or APIs when necessary. For example, by integrating a weather API, the Hazard Agent can automatically adjust indoor temperature based on outdoor conditions.
 
 #### Security Agent
+The Security Agent manages home security events. If it receives alerts such as a door opening at 3 A.M. or suspicious motion detected while the homeowner is away, it takes immediate and context-appropriate actions, such as locking doors, notifying the homeowner or neighbors, or escalating to emergency services if required.
 
 #### Command Control Agent
+The Command Control Agent processes direct user commands. When the homeowner makes a request (e.g., turning on lights, adjusting thermostat), this agent interprets the command and executes the corresponding actions across the smart home system.
 
 ### Essential Tools & Utilities
+
 
 ### Web UI Interface 
 <img width="1305" height="729" alt="smart_home_web_ui_interface" src="https://github.com/user-attachments/assets/efef2cc5-90b9-4ac4-9e01-083c1f234190" />
@@ -45,3 +49,4 @@ Input Router Agent is a core of the multiagent system which directs the cases to
 ### Value Statement
 
 #### Huggingface: [Link](https://huggingface.co/spaces/kyileiaye2019/safe-home-ai/tree/main)
+#### Web: [Link](https://huggingface.co/spaces/kyileiaye2019/safe-home-ai)
