@@ -43,23 +43,15 @@ The Command Control Agent processes direct user commands. When the homeowner mak
 The Smart Home Multi-Agent System is built on top of several key tools and utilities that enable perception, reasoning, and safe interaction with the environment.
 
 #### Google Agent Development Kit (Google ADK)
-
 Google ADK provides the underlying multi-agent framework for the system. It manages agent orchestration, tool calling, and event routing between the Input Router Agent, Hazard Agent, Security Agent, and Command Control Agent. This allows the system to remain modular, debuggable, and easy to extend with new agents or tools.
 
 #### Google Gemini API
+The Google Gemini API powers the system’s language understanding and reasoning capabilities. It interprets user commands, summarizes sensor events, and guides agents in selecting the appropriate actions or tools. Gemini also converts raw vision streams and sound recordings into natural language descriptions, which are stored as structured JSON events for the Input Router Agent to process. By leveraging Gemini, the system can understand ambiguous inputs, reason across multiple steps, and operate far beyond simple rule-based logic.
 
-The Google Gemini API powers the language and reasoning capabilities of the agents. It helps interpret user commands, summarize sensor events, and decide which actions or tools to invoke. By leveraging Gemini, the system can handle natural language, ambiguous inputs, and multi-step reasoning instead of relying solely on hard-coded rules.
-
-#### preprocess_vision_events
-
-This utility processes raw visual input (e.g., camera frames, motion detections) into structured events that the agents can understand. It may detect objects, classify motion, or extract key features, then encode them as concise JSON events. This preprocessing step is essential for reducing noise and giving the Security Agent high-quality, actionable information.
-
-#### preprocess_sound_events
-
-Similarly, this tool converts raw audio signals (e.g., glass breaking, alarms, unusual noises) into meaningful sound events. It filters out background noise and focuses on patterns that may indicate potential hazards or security issues, allowing the Hazard and Security Agents to reason over clean, structured data instead of raw sound.
+#### preprocess_vision_events & preprocess_sound_events
+These preprocessing tools convert raw sensor inputs, such as camera frames, motion detections, audio signals, and unusual noises, into clean, structured JSON events that the Input Router Agent can interpret. The vision pipeline extracts key visual features (e.g., object presence, movement patterns), while the sound pipeline identifies meaningful audio cues (e.g., alarms, glass breaking) and filters out background noise. By transforming unstructured sensor data into concise, high-signal events with Google Gemini API, these utilities ensure that downstream agents receive reliable information for accurate hazard and security decision-making.
 
 #### Open-Meteo Weather API
-
 The Open-Meteo Weather API is integrated as an external tool for the Hazard Agent. It provides real-time and forecasted weather data, enabling the system to adapt indoor temperature, prepare for extreme conditions, and generate non-emergency alerts (such as suggesting pre-cooling before a heatwave). This makes hazard decisions more context-aware and predictive, rather than purely reactive.
 
 ### Web UI Interface 
@@ -74,6 +66,9 @@ This coordinated multi-agent framework enables the smart-home environment to res
 The Smart Home Multi-Agent System significantly reduces the cognitive load on homeowners by automating routine tasks and responding intelligently to unexpected events. The system improves home safety by reacting to hazard and security threats in real time, while also streamlining daily command-based actions such as adjusting temperature or locking doors. This automation saves homeowners time, prevents potential emergencies, and creates a more responsive living environment.
 
 If expanded, the system would include a Human-in-the-Loop module for non-urgent alerts, ensuring the homeowner can review and approve actions before they are executed. I would also add an Environmental Awareness Agent to monitor weather, air quality, crime patterns, and energy data, giving the system stronger predictive insight. With additional APIs, device tools, and MCP integrations, the platform can become more context-aware and reliable while preserving homeowner oversight in non-emergency situations.
+
+### Agent Deployment
+The system is deployed on Hugging Face, allowing the multi-agent architecture to run in a hosted environment supported by a Gradio interface and enabling users to interact with the agents through a web-based interface.
 
 #### Huggingface: [Link](https://huggingface.co/spaces/kyileiaye2019/safe-home-ai/tree/main)
 #### Web: [Link](https://huggingface.co/spaces/kyileiaye2019/safe-home-ai)
